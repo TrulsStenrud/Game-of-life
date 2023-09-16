@@ -40,7 +40,7 @@ public class ToolController {
         this.masterController = masterController;
 
         // file paths for finding images for the play/pause button
-        String pathImages = "/icons/";
+        String pathImages = "/";
         String pauseImageName = "bars.png";
         String playImageName = "arrows.png";
 

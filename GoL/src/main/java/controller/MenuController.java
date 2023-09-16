@@ -36,6 +36,7 @@ public class MenuController {
      */
     public void initialize(MasterController masterController) {
 
+        System.out.println("Setting master controller");
         this.masterController = masterController;
     }
 

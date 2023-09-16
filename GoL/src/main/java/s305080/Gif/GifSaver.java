@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import lieng.GIFWriter;
 import model.CameraView;
 import model.Cell;
 import model.GameOfLife;
@@ -41,7 +40,7 @@ public class GifSaver {
 
     CameraView cView = new CameraView();
 
-    private GIFWriter gifWriter;
+//    private GIFWriter gifWriter;
     private int frameNr;
     private int iterations = 0;
     private int gPerIteration;
@@ -135,7 +134,7 @@ public class GifSaver {
         }
 
         // initiates the gifWriter
-        gifWriter = new GIFWriter(width, height, path, 1000/framerate);
+//        gifWriter = new GIFWriter(width, height, path, 1000/framerate);
 
         // to count the frames
         frameNr = 0;
@@ -174,7 +173,7 @@ public class GifSaver {
         // checks if enough frames
         if(frameNr >= iterations){
             // closes gif
-            gifWriter.close();
+//            gifWriter.close();
             // stops recursion
             return;
         }
@@ -188,7 +187,7 @@ public class GifSaver {
         frameNr++;
 
         // prepares gifWriter for next image
-        gifWriter.insertAndProceed();
+//        gifWriter.insertAndProceed();
 
         // draws next image
         drawNextImage();
@@ -228,10 +227,10 @@ public class GifSaver {
      * fills the image with the background color
      */
     private void drawBackground() {
-        gifWriter.fillRect(0, width - 1, 0, height - 1, new Color(
-                (int) (255 * cell.getDeadColor().getRed()),
-                (int) (255 * cell.getDeadColor().getGreen()),
-                (int) (255 * cell.getDeadColor().getBlue())));
+//        gifWriter.fillRect(0, width - 1, 0, height - 1, new Color(
+//                (int) (255 * cell.getDeadColor().getRed()),
+//                (int) (255 * cell.getDeadColor().getGreen()),
+//                (int) (255 * cell.getDeadColor().getBlue())));
     }
 
     // draws the cell at (x, y)
@@ -251,13 +250,13 @@ public class GifSaver {
         x2 = (x2 >= width) ? width - 1 : x2;
         y2 = (y2 >= height) ? height - 1 : y2;
 
-        gifWriter.fillRect(
-                x1 , x2,
-                y1 , y2,
-                new Color(
-                        (int) (255 * cell.getColor().getRed()),
-                        (int) (255 * cell.getColor().getGreen()),
-                        (int) (255 * cell.getColor().getBlue())));
+//        gifWriter.fillRect(
+//                x1 , x2,
+//                y1 , y2,
+//                new Color(
+//                        (int) (255 * cell.getColor().getRed()),
+//                        (int) (255 * cell.getColor().getGreen()),
+//                        (int) (255 * cell.getColor().getBlue())));
 
     }
 

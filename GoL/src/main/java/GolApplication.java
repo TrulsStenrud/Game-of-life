@@ -1,5 +1,4 @@
-package controller;
-
+import controller.MasterController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
@@ -8,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class Main extends Application {
+public class GolApplication extends Application {
 
     /**
      * Loads the manView fxml document and starts the application
@@ -20,7 +19,7 @@ public class Main extends Application {
 
         // load main fxml view
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("../view/MainView.fxml"));
+                GolApplication.class.getResource("MainView.fxml"));
 
         try {
             // load root element of fxml to reference

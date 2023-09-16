@@ -56,7 +56,7 @@ public class MasterController {
     public void initialize(Stage stage, BorderPane root) throws IOException {
 
         // read and loads game of life configurations from file
-        configuration = new Configuration("../GoL/resources/config.properties");
+        configuration = new Configuration("config.properties");
 
         // set stage to field
         this.stage = stage;

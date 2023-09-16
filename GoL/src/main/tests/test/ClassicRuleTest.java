@@ -3,19 +3,15 @@ package test;
 import model.DynamicGameOfLife;
 import model.GameOfLife;
 import model.StaticGameOfLife;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  */
 public class ClassicRuleTest {
 
-    @org.junit.Rule
-    public ExpectedException expectedException = ExpectedException.none();
+//    @Rule
+//    public ExpectedException expectedException = ExpectedException.none();
 
     private GameOfLife gol;
 

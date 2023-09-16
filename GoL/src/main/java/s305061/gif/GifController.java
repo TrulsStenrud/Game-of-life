@@ -6,7 +6,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import lieng.GIFWriter;
 import model.DynamicGameOfLife;
 import model.GameOfLife;
 
@@ -214,9 +213,9 @@ public class GifController {
 
         GameOfLife clonedGol = originalGol.clone();
 
-        GIFWriter gifWriter = new GIFWriter(getGifWidth(), getGifHeight(), path, timeBetweenFrames);
-
-        writeGoLSequenceToGIF(gifWriter, clonedGol, iterations);
+//        GIFWriter gifWriter = new GIFWriter(getGifWidth(), getGifHeight(), path, timeBetweenFrames);
+//
+//        writeGoLSequenceToGIF(gifWriter, clonedGol, iterations);
     }
 
     /**
@@ -228,53 +227,53 @@ public class GifController {
      * @param counter Counter to determine when to stop recursive method. Initially set as number of generations/frames
      * @throws IOException IO expectedException, thrown by GIFLib
      */
-    private void writeGoLSequenceToGIF(GIFWriter writer, GameOfLife game, int counter) throws IOException {
-
-        // condition to end recursion
-        if(counter <= 0){
-            writer.close();
-        } else {
-
-            // add new image (frame) to gif
-            writer.createNextImage();
-
-            // converts javafx.scene.pain.Color to java.awt.Color
-            java.awt.Color awtColor = FxColorToAwtColor(color);
-
-            // these are 0 and 0 the first repetition (reset in clone() method),
-            // then they will increase according to the movement of the pattern (if dynamic game board)
-            int offsetX = game.getOffsetX();
-            int offsetY = game.getOffsetY();
-
-            // draw current generation of the game board to current image in writer
-            for (int gameX = left + offsetX; gameX <= right + offsetX; gameX++)
-                for (int gameY = top + offsetY; gameY <= bottom + offsetY; gameY++){
-
-                    if(game.isCellAlive(gameX, gameY)){
-
-                        int gifX = (gameX - left - offsetX) * scale;
-                        int gifY = (gameY - top - offsetY) * scale;
-
-                        int gifMaxX = gifX + scale - 1;
-                        int gifMaxY = gifY + scale - 1;
-
-                        try {
-                            writer.fillRect(gifX, gifMaxX, gifY, gifMaxY, awtColor);
-                        } catch (ArrayIndexOutOfBoundsException ignored){
-                        }
-                    }
-                }
-
-            // insert image to GIF sequence via writer
-            writer.insertCurrentImage();
-
-            // nextGeneration call to game
-            game.nextGeneration();
-
-            // recursive call to writeGoLSequenceToGIF
-            writeGoLSequenceToGIF(writer, game, --counter);
-        }
-    }
+//    private void writeGoLSequenceToGIF(GIFWriter writer, GameOfLife game, int counter) throws IOException {
+//
+//        // condition to end recursion
+//        if(counter <= 0){
+//            writer.close();
+//        } else {
+//
+//            // add new image (frame) to gif
+//            writer.createNextImage();
+//
+//            // converts javafx.scene.pain.Color to java.awt.Color
+//            java.awt.Color awtColor = FxColorToAwtColor(color);
+//
+//            // these are 0 and 0 the first repetition (reset in clone() method),
+//            // then they will increase according to the movement of the pattern (if dynamic game board)
+//            int offsetX = game.getOffsetX();
+//            int offsetY = game.getOffsetY();
+//
+//            // draw current generation of the game board to current image in writer
+//            for (int gameX = left + offsetX; gameX <= right + offsetX; gameX++)
+//                for (int gameY = top + offsetY; gameY <= bottom + offsetY; gameY++){
+//
+//                    if(game.isCellAlive(gameX, gameY)){
+//
+//                        int gifX = (gameX - left - offsetX) * scale;
+//                        int gifY = (gameY - top - offsetY) * scale;
+//
+//                        int gifMaxX = gifX + scale - 1;
+//                        int gifMaxY = gifY + scale - 1;
+//
+//                        try {
+//                            writer.fillRect(gifX, gifMaxX, gifY, gifMaxY, awtColor);
+//                        } catch (ArrayIndexOutOfBoundsException ignored){
+//                        }
+//                    }
+//                }
+//
+//            // insert image to GIF sequence via writer
+//            writer.insertCurrentImage();
+//
+//            // nextGeneration call to game
+//            game.nextGeneration();
+//
+//            // recursive call to writeGoLSequenceToGIF
+//            writeGoLSequenceToGIF(writer, game, --counter);
+//        }
+//    }
 
     //region getters
     /**
